@@ -1,24 +1,24 @@
 (function () {
     'use strict';
 
-    var uiMultiselect;
+    var uixMultiselect;
     try {
-        uiMultiselect = angular.module("ui-multiselect");
+        uixMultiselect = angular.module("uix-multiselect");
     } catch (err) {
-        uiMultiselect = null;
+        uixMultiselect = null;
     }
 
-    if (!uiMultiselect) {
-        angular.module('ui-multiselect.services', ['ngResource', 'ngAnimate']);
-        angular.module('ui-multiselect.controllers', []);
-        angular.module('ui-multiselect.directives', []);
-        angular.module('ui-multiselect.constants', []);
-        angular.module('ui-multiselect',
+    if (!uixMultiselect) {
+        angular.module('uix-multiselect.services', ['ngResource', 'ngAnimate']);
+        angular.module('uix-multiselect.controllers', []);
+        angular.module('uix-multiselect.directives', []);
+        angular.module('uix-multiselect.constants', []);
+        angular.module('uix-multiselect',
             [
-                'ui-multiselect.services',
-                'ui-multiselect.controllers',
-                'ui-multiselect.directives',
-                'ui-multiselect.constants'
+                'uix-multiselect.services',
+                'uix-multiselect.controllers',
+                'uix-multiselect.directives',
+                'uix-multiselect.constants'
             ]);
     }
 
@@ -588,7 +588,7 @@
     };
 
     // IE11 doesn't enable the filter box when parent changes is using disabled attribute - so, use ng-disabled in your own HTML!
-    angular.module("ui-multiselect").run(["$templateCache", function ($templateCache) {
+    angular.module("uix-multiselect").run(["$templateCache", function ($templateCache) {
         $templateCache.put("template/multiselect/multiselectPopup.html",
             "<div class=\"btn-group\" ng-class=\"{ dropup: dropup, single: !multiple }\">" +
                 "<button type=\"button\" class=\"btn btn-default dropdown-toggle\" ng-click=\"toggleSelect()\" ng-disabled=\"disabled\" ng-class=\"{'has-error': !valid()}\">" +
@@ -625,14 +625,14 @@
     multiselectPopup.$inject = ['$document'];
 
     angular
-        .module("ui-multiselect.services")
+        .module("uix-multiselect.services")
         .factory('multiselectParser', multiselectParser);
 
     angular
-        .module('ui-multiselect.directives')
+        .module('uix-multiselect.directives')
         .directive('multiselectPopup', multiselectPopup);
 
     angular
-        .module('ui-multiselect.directives')
+        .module('uix-multiselect.directives')
         .directive('multiselect', multiselect);
 })();

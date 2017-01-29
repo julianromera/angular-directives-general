@@ -6,7 +6,7 @@
     "Stephen Long <john@doe.com> (https://long2know.com)"
   ],
   "description": "Angular-UI Multiselect Checkbox Dropdown",
-  "main": "src/multiselect.min.js",
+  "main": "src/multiselect.js",
   "keywords": [
     "Angular",
     "Angular-ui",

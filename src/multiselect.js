@@ -1,22 +1,24 @@
 (function () {
-    var long2know;
+    'use strict';
+
+    var uiMultiselect;
     try {
-        long2know = angular.module("long2know")
+        uiMultiselect = angular.module("ui-multiselect");
     } catch (err) {
-        long2know = null;
+        uiMultiselect = null;
     }
 
-    if (!long2know) {
-        angular.module('long2know.services', ['ngResource', 'ngAnimate']);
-        angular.module('long2know.controllers', []);
-        angular.module('long2know.directives', []);
-        angular.module('long2know.constants', []);
-        angular.module('long2know',
+    if (!uiMultiselect) {
+        angular.module('ui-multiselect.services', ['ngResource', 'ngAnimate']);
+        angular.module('ui-multiselect.controllers', []);
+        angular.module('ui-multiselect.directives', []);
+        angular.module('ui-multiselect.constants', []);
+        angular.module('ui-multiselect',
             [
-                'long2know.services',
-                'long2know.controllers',
-                'long2know.directives',
-                'long2know.constants'
+                'ui-multiselect.services',
+                'ui-multiselect.controllers',
+                'ui-multiselect.directives',
+                'ui-multiselect.constants'
             ]);
     }
 
@@ -115,7 +117,7 @@
                     },
                     getHeaderText = function () {
                         var localHeader = header;
-                        if (isEmpty(modelCtrl.$modelValue)) return scope.header = localHeader;
+                        if (isEmpty(modelCtrl.$modelValue)) { return scope.header = localHeader; }
                         if (isMultiple) {
                             var isArray = modelCtrl.$modelValue instanceof Array;
                             if (isArray && modelCtrl.$modelValue.length > 1) {
@@ -132,24 +134,24 @@
                         scope.header = localHeader;
                     },
                     isEmpty = function (obj) {
-                        if (!obj) return true;
-                        if (!isComplex && obj) return false;
-                        if (obj.length && obj.length > 0) return false;
-                        for (var prop in obj) if (obj[prop]) return false;
+                        if (!obj) { return true; }
+                        if (!isComplex && obj) {return false;}
+                        if (obj.length && obj.length > 0) {return false;}
+                        for (var prop in obj) { if (obj[prop]) {return false;} }
                         return true;
                     },
                     parseModel = function () {
                         scope.items.length = 0;
                         var model = parserResult.source(originalScope);
-                        if (!angular.isDefined(model)) return;
-                        isArray = modelCtrl.$modelValue instanceof Array;
+                        if (!angular.isDefined(model)) {return;}
+                        var isArray = modelCtrl.$modelValue instanceof Array;
                         for (var i = 0; i < model.length; i++) {
                             var local = {};
                             local[parserResult.itemName] = model[i];
-                            var value = parserResult.modelMapper(local)
+                            var value = parserResult.modelMapper(local);
                             var isChecked = isArray ?
-                                (modelCtrl.$modelValue.indexOf(value.toString()) != -1 || modelCtrl.$modelValue.indexOf(value) != -1) :
-                                (!isEmpty(modelCtrl.$modelValue) && modelCtrl.$modelValue == value);
+                                (modelCtrl.$modelValue.indexOf(value.toString()) !==  -1 || modelCtrl.$modelValue.indexOf(value) !== -1) :
+                                (!isEmpty(modelCtrl.$modelValue) && modelCtrl.$modelValue === value);
                             var item = {
                                 label: parserResult.viewMapper(local),
                                 model: model[i],
@@ -178,6 +180,7 @@
                         setModelValue(true);
                     },
             getModelValue = function (item) {
+                var value;
                 if (isComplex) {
                     value = item.model;
                 }
@@ -203,7 +206,7 @@
                                 value.push(parserResult.modelMapper(local));
                             }
                         }
-                    })
+                    });
                 } else {
                     angular.forEach(scope.items, function (item) {
                         if (item.checked) {
@@ -218,7 +221,7 @@
                                 return false;
                             }
                         }
-                    })
+                    });
                 }
                 scope.triggered = true;
                 modelCtrl.$setViewValue(value);
@@ -237,13 +240,14 @@
                     var itemsToCheck = [];
                     var itemsToUncheck = [];
                     var itemValues = [];
-                    for (var j = 0; j < scope.items.length; j++) {
+                    var i, j;
+                    for (j = 0; j < scope.items.length; j++) {
                         itemValues.push(getModelValue(scope.items[j]));
                         itemsToUncheck.push(j);
-                    };
+                    }
 
-                    for (var i = 0; i < newVal.length; i++) {
-                        for (var j = 0; j < itemValues.length; j++) {
+                    for (i = 0; i < newVal.length; i++) {
+                        for (j = 0; j < itemValues.length; j++) {
                             if (angular.equals(itemValues[j], newVal[i])) {
                                 itemsToCheck.push(scope.items[j]);
                                 var index = itemsToUncheck.indexOf(j);
@@ -253,11 +257,11 @@
                         }
                     }
 
-                    for (var i = 0; i < itemsToCheck.length; i++) {
+                    for (i = 0; i < itemsToCheck.length; i++) {
                         itemsToCheck[i].checked = true;
                     }
 
-                    for (var i = 0; i < itemsToUncheck.length; i++) {
+                    for (i = 0; i < itemsToUncheck.length; i++) {
                         scope.items[itemsToUncheck[i]].checked = false;
                     }
 
@@ -361,14 +365,14 @@
                 ////watch model change  --> This has an issue in that it seems that all models are updated to the same value
                 scope.$watch(function () {
                     return modelCtrl.$modelValue;
-                }, function (newVal, oldVal) {
+                }, function (newVal) {
                     //when directive initializes, newVal is usually undefined. Also, if model value is already set in the controller
                     //for preselected list then we need to mark checked in our scope item. But we don't want to do this every time the
                     //model changes. We need to do this only if it is done outside directive scope, from controller, for example.
                     if (!scope.triggered) {
                         if (angular.isDefined(newVal)) {
                             var isArray = newVal instanceof Array;
-                            if ((isArray && newVal.length == 0) || !isArray) {
+                            if ((isArray && newVal.length === 0) || !isArray) {
                                 scope.uncheckAll();
                             }
                             markChecked(newVal);
@@ -395,13 +399,13 @@
                 $timeout(function () { recalculatePosition(); }, 100);
 
                 scope.valid = function validModel() {
-                    if (!required) return true;
+                    if (!required) { return true; }
                     var value = modelCtrl.$modelValue;
-                    return (angular.isArray(value) && value.length > 0) || (!angular.isArray(value) && value != null);
+                    return (angular.isArray(value) && value.length > 0) || (!angular.isArray(value) && value !== null);
                 };
 
                 scope.checkAll = function () {
-                    if (!isMultiple) return;
+                    if (!isMultiple) {return;}
                     var items = scope.items;
                     var totalChecked = 0;
                     if (useFiltered) {
@@ -472,11 +476,11 @@
                 var
                     clickHandler = function (event) {
                         if (elementMatchesAnyInArray(event.target, element.find(event.target.tagName)))
-                            return;
+                            {return;}
 
                         if (scope.appendToBody) {
                             if (elementMatchesAnyInArray(event.target, $dropdown.find(event.target.tagName)))
-                                return;
+                                {return;}
                         }
 
                         element.removeClass('open');
@@ -485,9 +489,11 @@
                         scope.$apply();
                     },
                     elementMatchesAnyInArray = function (element, elementArray) {
-                        for (var i = 0; i < elementArray.length; i++)
-                            if (element == elementArray[i])
+                        for (var i = 0; i < elementArray.length; i++) {
+                            if (element === elementArray[i]) {
                                 return true;
+                            }
+                        }
                         return false;
                     };
 
@@ -576,13 +582,13 @@
                         var searchBox = element.find('input')[0];
                         searchBox.focus();
                     }
-                }
+                };
             }
-        }
+        };
     };
 
     // IE11 doesn't enable the filter box when parent changes is using disabled attribute - so, use ng-disabled in your own HTML!
-    angular.module("long2know").run(["$templateCache", function ($templateCache) {
+    angular.module("ui-multiselect").run(["$templateCache", function ($templateCache) {
         $templateCache.put("template/multiselect/multiselectPopup.html",
             "<div class=\"btn-group\" ng-class=\"{ dropup: dropup, single: !multiple }\">" +
                 "<button type=\"button\" class=\"btn btn-default dropdown-toggle\" ng-click=\"toggleSelect()\" ng-disabled=\"disabled\" ng-class=\"{'has-error': !valid()}\">" +
@@ -619,14 +625,14 @@
     multiselectPopup.$inject = ['$document'];
 
     angular
-        .module("long2know.services")
+        .module("ui-multiselect.services")
         .factory('multiselectParser', multiselectParser);
 
     angular
-        .module('long2know.directives')
+        .module('ui-multiselect.directives')
         .directive('multiselectPopup', multiselectPopup);
 
     angular
-        .module('long2know.directives')
+        .module('ui-multiselect.directives')
         .directive('multiselect', multiselect);
-})()
+})();

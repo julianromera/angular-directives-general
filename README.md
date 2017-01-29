@@ -1,4 +1,4 @@
-# General Angular Directives
+# General Angular Directives (*)
 
 This is a general repository for Angular Directives that I've developed for my blog, [Longing to Know](https://long2know.com)
 
@@ -11,3 +11,4 @@ Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license]
   - [Demo Codepen](http://codepen.io/julianromera/pen/KaZdaV)
 
 
+* UPDATE: clone & split Lonk2Know's repository. Remove all scripts but multiselect

@@ -1,12 +1,12 @@
 {
-  "name": "uix-multiselect",
+  "name": "ui-multiselect",
   "homepage": "https://github.com/julianromera/angular-directives-general",
   "authors": [
-    "Julian romera <julian.romera@gmail.com>",
-    "Stephen Long <john@doe.com> (https://long2know.com)"
+    "julian romera <julian.romera@gmail.com> (http://julianromera.com)",
+    "stephen long <john@doe.com> (https://long2know.com)"
   ],
   "dependencies": {
-    "angular-animate":"latest"
+    "angular-bootstrap": "^2.5.0"
   },
   "description": "Angular-UI Multiselect Checkbox Dropdown",
   "main": "src/multiselect.js",

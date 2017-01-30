@@ -20,7 +20,7 @@ This is a general repository for Angular Directives that I've developed for my b
 ### Install
 
 ```
-bower install uix-multiselect --save
+bower install ui-multiselect --save
 ```
 
 ### Docs
@@ -30,7 +30,7 @@ bower install uix-multiselect --save
  - Add pills in placeholder
 
 ### Maintainers
-  - Julian romera [julianromera.com](http://julianromera.com)
+  - julian romera [julianromera.com](http://julianromera.com)
   - [ADD YOURSELF HERE]
 
 ### Copyright and license

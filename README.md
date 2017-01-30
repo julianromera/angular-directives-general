@@ -20,7 +20,7 @@ This is a general repository for Angular Directives that I've developed for my b
 ### Install
 
 ```
-bower install ui-multiselect --save
+bower install angular-ui-multiselect --save
 ```
 
 ### Docs

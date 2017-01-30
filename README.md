@@ -31,7 +31,7 @@ bower install uix-multiselect --save
 
 ### Maintainers
   - Julian romera [julianromera.com](http://julianromera.com)
-  - <ADD YOURSELF HERE>
+  - [ADD YOURSELF HERE]
 
 ### Copyright and license
 Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license](https://github.com/long2know/angular-directives-general/blob/master/LICENSE.md)

@@ -7,8 +7,7 @@
 
 This is a general repository for Angular Directives that I've developed for my blog, [Longing to Know](https://long2know.com)
 
-### Copyright and license
-Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license](https://github.com/long2know/angular-directives-general/blob/master/LICENSE.md)
+
 
 ### Angular-UI Multiselect Checkbox Dropdown
   - [Blog](https://long2know.com/2015/07/angular-multiselect-dropdown/)
@@ -17,3 +16,25 @@ Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license]
 
 
 * UPDATE: This is a fork of Stephen Long's (long2know) repository. All scripts except multiselect have been removed.
+
+### Install
+
+```
+bower install uix-multiselect --save
+```
+
+### Docs
+
+
+### Updates
+ - Add pills in placeholder
+
+### Maintainers
+  - Julian romera [julianromera.com](http://julianromera.com)
+  - <ADD YOURSELF HERE>
+
+### Copyright and license
+Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license](https://github.com/long2know/angular-directives-general/blob/master/LICENSE.md)
+
+
+

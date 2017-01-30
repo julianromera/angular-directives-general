@@ -22,7 +22,7 @@
         }
 
         vm.options2 = [];
-        for (i = 0; i < 100; i++) {
+        for (i = 0; i < 10; i++) {
             vm.options2.push({ key: i + 1, value: 'Prop' + (i + 1).toString() });
         }
 
@@ -41,6 +41,7 @@
 
         vm.randomSelect = function() {
             vm.clear();
+
             var arrSelected = [ vm.option1, vm.option2, vm.option3, vm.option4, vm.option5, vm.option6, vm.option7];
             var arrOptions = [ vm.options1, vm.options2, vm.options2, vm.options1, vm.options1, vm.options1, vm.options2 ];
             var arrIsSingle = [ false, false, false, true, false, false, false  ];

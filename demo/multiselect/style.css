@@ -4,6 +4,8 @@ multiselect {
 
     multiselect > .btn-group {
         min-width: 180px;
+        max-width: 280px;
+        width: 280px;
     }
 
     multiselect .btn {
@@ -11,10 +13,10 @@ multiselect {
         background-color: #FFF;
     }
 
-        multiselect .btn.has-error {
-            border: 1px solid #a94442 !important;
-            color: #db524b;
-        }
+    multiselect .btn.has-error {
+        border: 1px solid #a94442 !important;
+        color: #db524b;
+    }
 
     multiselect .dropdown-menu {
         max-height: 300px;
@@ -22,14 +24,14 @@ multiselect {
         overflow-y: auto;
     }
 
-        multiselect .dropdown-menu .filter > input {
-            width: 99%;
-        }
+    multiselect .dropdown-menu .filter > input {
+        width: 99%;
+    }
 
-        multiselect .dropdown-menu .filter .glyphicon {
-            cursor: pointer;
-            pointer-events: all;
-        }
+    multiselect .dropdown-menu .filter .glyphicon {
+        cursor: pointer;
+        pointer-events: all;
+    }
 
     multiselect .dropdown-menu {
         width: 100%;
@@ -41,28 +43,29 @@ multiselect {
         padding-right: 20px;
     }
 
-        multiselect > .btn-group > button > .caret {
-            right: 5px;
-            top: 45%;
-            position: absolute;
-        }
+    multiselect > .btn-group > button > .caret {
+        right: 5px;
+        top: 45%;
+        position: absolute;
+    }
 
-        multiselect > .btn-group:not(.dropup) > button > .caret {
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid black;
-        }
+    multiselect > .btn-group:not(.dropup) > button > .caret {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid black;
+    }
 
     multiselect .dropdown-menu > li > a {
         padding: 3px 10px;
         cursor: pointer;
     }
 
-        multiselect .dropdown-menu > li > a i {
-            margin-right: 4px;
-        }
+    multiselect .dropdown-menu > li > a i {
+        margin-right: 4px;
+    }
 
 .glyphicon-none:before {
     content: "\e013";
     color: transparent !important;
 }
+

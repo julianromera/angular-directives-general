@@ -1,4 +1,4 @@
-<html>    
+<html>
     <head>
         <title>Multiselect Demo</title>
         <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -19,7 +19,7 @@
         <script type='text/javascript' src="script.js"></script>
         <script type='text/javascript' src="../../src/multiselect.js"></script>
     </head>
-    
+
     <body ng-app="myApp">
         <div ng-include="'menu.html'"></div>
         <div ui-view="main"></div>
@@ -37,51 +37,59 @@
         <div class="col-lg-4">
             <form>
                 <div class="form-group">
-                    <multiselect class="input-xlarge multiselect" ng-model="vm.option1" options="p.key as p.value for p in vm.options1" select-limit="5"
-                                 header="Select Stuff1" selected-header="options selected" multiple="true" required
-                                 enable-filter="true" filter-placeholder="Filter stuff..">
+                    <multiselect
+                        class="input-xlarge multiselect"
+                        enable-check-all="false"
+                        enable-uncheck-all="false"
+                        ng-model="vm.option1"
+                        options="p.key as p.value for p in vm.options1"
+                        header="Placeholder"
+                        multiple="true"
+                        enable-filter="true"
+                        filter-placeholder="Search"
+                        required>
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option2" options="p.key as p.value for p in vm.options2" select-limit="5"
                                  header="Select Stuff2 Simple" selected-header="options selected" multiple="true" required
                                  enable-filter="true" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option3" options="p.key as p.value for p in vm.options2" select-limit="5"
                                  header="Select Stuff3 Complex" selected-header="options selected" multiple="true" complex-models="true" required
                                  enable-filter="true" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option4" options="p.key as p.value for p in vm.options1" select-limit="5"
                                  header="Single Select Stuff4" selected-header="options selected" multiple="false" required complex-models="true"
                                  enable-filter="true" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option5" options="p.key as p.value for p in vm.options1" select-limit="5"
                                  header="Select Stuff5 No Filter" selected-header="options selected" multiple="true" enable-filter="false" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option6" options="p.key as p.value for p in vm.options1" select-limit="5"
                                  header="Select Stuff6 Prepopulated" selected-header="options selected" multiple="true" enable-filter="true" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div class="form-group">
                     <multiselect class="input-xlarge multiselect" ng-model="vm.option7" options="p.key as p.value for p in vm.options2" select-limit="5"
                                  header="Select Stuff7 Prepopulated" selected-header="options selected" multiple="true" enable-filter="true" filter-placeholder="Filter stuff..">
                     </multiselect>
                 </div>
-        
+
                 <div>
                     <div>
                         Option1

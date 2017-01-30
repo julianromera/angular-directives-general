@@ -2,7 +2,7 @@
 
 
 
-![screenshot_v1.1.0](/docs/sc_1.1.0.png)
+![screenshot_v1.1.0](/doc/sc_1.1.0.png)
 
 
 This is a general repository for Angular Directives that I've developed for my blog, [Longing to Know](https://long2know.com)

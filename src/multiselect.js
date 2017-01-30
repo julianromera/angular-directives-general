@@ -46,12 +46,13 @@
                     enableFilter = attrs.enableFilter ? originalScope.$eval(attrs.enableFilter) : true,
                     enableCheckAll = attrs.enableCheckAll ? originalScope.$eval(attrs.enableCheckAll) : true,
                     enableUncheckAll = attrs.enableUncheckAll ? originalScope.$eval(attrs.enableUncheckAll) : true,
-                    header = attrs.header ? attrs.header : "Select",
+                    header = attrs.header ? attrs.header : 'Select',
                     selectLimit = attrs.selectLimit ? originalScope.$eval(attrs.selectLimit) : 0,
-                    useFiltered = attrs.selectLimitUseFiltered ? originalScope.$eval(attrs.selectLimitUseFiltered) : true,
-                    filterPlaceholder = attrs.filterPlaceholder ? attrs.filterPlaceholder : "Filter ..",
-                    checkAllLabel = attrs.checkAllLabel ? attrs.checkAllLabel : "Check all",
-                    uncheckAllLabel = attrs.uncheckAllLabel ? attrs.uncheckAllLabel : "Uncheck all",
+                    useFiltered = attrs.selectLimitUseFiltered ?
+                        originalScope.$eval(attrs.selectLimitUseFiltered) : true,
+                    filterPlaceholder = attrs.filterPlaceholder ? attrs.filterPlaceholder : 'Filter ..',
+                    checkAllLabel = attrs.checkAllLabel ? attrs.checkAllLabel : 'Check all',
+                    uncheckAllLabel = attrs.uncheckAllLabel ? attrs.uncheckAllLabel : 'Uncheck all',
                     appendToBody = attrs.appendToBody ? originalScope.$eval(attrs.appendToBody) : false,
                     required = false,
                     lastSelectedLabel = '',
@@ -67,7 +68,7 @@
             },
 
             getFilteredItems = function () {
-                var filteredItems = $filter("filter")(scope.items, scope.searchText);
+                var filteredItems = $filter('filter')(scope.items, scope.searchText);
                 return filteredItems;
             },
 
@@ -120,10 +121,20 @@
                 scope.header = localHeader;
             },
             isEmpty = function (obj) {
-                if (!obj) { return true; }
-                if (!isComplex && obj) {return false;}
-                if (obj.length && obj.length > 0) {return false;}
-                for (var prop in obj) { if (obj[prop]) {return false;} }
+                if (!obj) {
+                    return true;
+                }
+                if (!isComplex && obj) {
+                    return false;
+                }
+                if (obj.length && obj.length > 0) {
+                    return false;
+                }
+                for (var prop in obj) {
+                    if (obj[prop]) {
+                        return false;
+                    }
+                }
                 return true;
             },
             parseModel = function () {
@@ -136,7 +147,7 @@
                     local[parserResult.itemName] = model[i];
                     var value = parserResult.modelMapper(local);
                     var isChecked = isArray ?
-                        (modelCtrl.$modelValue.indexOf(value.toString()) !==  -1 || modelCtrl.$modelValue.indexOf(value) !== -1) :
+                        ((typeof value !== 'undefined' && modelCtrl.$modelValue.indexOf(value.toString()) !==  -1) || (typeof value !== 'undefined' && modelCtrl.$modelValue.indexOf(value) !== -1)) :
                         (!isEmpty(modelCtrl.$modelValue) && modelCtrl.$modelValue === value);
                     var item = {
                         label: parserResult.viewMapper(local),
@@ -430,7 +441,7 @@
             require: ['^ngModel', '?^form'],
             templateUrl: 'template/multiselect/multiselectPopup.html',
             link: function (scope, element) {
-                var $dropdown = element.find(".dropdown-menu");
+                var $dropdown = element.find('.dropdown-menu');
                 $dropdown.attr("id", scope.popupId);
 
                 if (scope.appendToBody) {
@@ -578,7 +589,7 @@
     }
 
 
-    angular.module('uix-multiselect.services', ['ngResource', 'ngAnimate']);
+    angular.module('uix-multiselect.services', []);
     angular.module('uix-multiselect.controllers', []);
     angular.module('uix-multiselect.directives', []);
     angular.module('uix-multiselect.constants', []);

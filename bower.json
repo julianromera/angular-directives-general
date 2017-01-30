@@ -5,6 +5,9 @@
     "Julian romera <julian.romera@gmail.com>",
     "Stephen Long <john@doe.com> (https://long2know.com)"
   ],
+  "dependencies": {
+    "angular-animate":"latest"
+  },
   "description": "Angular-UI Multiselect Checkbox Dropdown",
   "main": "src/multiselect.js",
   "keywords": [

@@ -11,4 +11,4 @@ Code copyright 2015-2016 Stephen Long.  Code released under the [Apache license]
   - [Demo Codepen](http://codepen.io/julianromera/pen/KaZdaV)
 
 
-* UPDATE: This is a fork of Stephen Long's (Lonk2Know) repository. All scripts but multiselect have been removed.
+* UPDATE: This is a fork of Stephen Long's (long2know) repository. All scripts except multiselect have been removed.

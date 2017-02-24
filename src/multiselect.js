@@ -46,13 +46,12 @@
                     enableFilter = attrs.enableFilter ? originalScope.$eval(attrs.enableFilter) : true,
                     enableCheckAll = attrs.enableCheckAll ? originalScope.$eval(attrs.enableCheckAll) : true,
                     enableUncheckAll = attrs.enableUncheckAll ? originalScope.$eval(attrs.enableUncheckAll) : true,
-                    header = attrs.header ? attrs.header : 'Select',
+                    header = attrs.header ? attrs.header : "Select",
                     selectLimit = attrs.selectLimit ? originalScope.$eval(attrs.selectLimit) : 0,
-                    useFiltered = attrs.selectLimitUseFiltered ?
-                        originalScope.$eval(attrs.selectLimitUseFiltered) : true,
-                    filterPlaceholder = attrs.filterPlaceholder ? attrs.filterPlaceholder : 'Filter ..',
-                    checkAllLabel = attrs.checkAllLabel ? attrs.checkAllLabel : 'Check all',
-                    uncheckAllLabel = attrs.uncheckAllLabel ? attrs.uncheckAllLabel : 'Uncheck all',
+                    useFiltered = attrs.selectLimitUseFiltered ? originalScope.$eval(attrs.selectLimitUseFiltered) : true,
+                    filterPlaceholder = attrs.filterPlaceholder ? attrs.filterPlaceholder : "Filter ..",
+                    checkAllLabel = attrs.checkAllLabel ? attrs.checkAllLabel : "Check all",
+                    uncheckAllLabel = attrs.uncheckAllLabel ? attrs.uncheckAllLabel : "Uncheck all",
                     appendToBody = attrs.appendToBody ? originalScope.$eval(attrs.appendToBody) : false,
                     required = false,
                     lastSelectedLabel = '',
@@ -68,7 +67,7 @@
             },
 
             getFilteredItems = function () {
-                var filteredItems = $filter('filter')(scope.items, scope.searchText);
+                var filteredItems = $filter("filter")(scope.items, scope.searchText);
                 return filteredItems;
             },
 
@@ -121,24 +120,16 @@
                 scope.header = localHeader;
             },
             isEmpty = function (obj) {
-                if (!obj) {
-                    return true;
-                }
-                if (!isComplex && obj) {
-                    return false;
-                }
-                if (obj.length && obj.length > 0) {
-                    return false;
-                }
-                for (var prop in obj) {
-                    if (obj[prop]) {
-                        return false;
-                    }
-                }
+                if (!obj) { return true; }
+                if (!isComplex && obj) {return false;}
+                if (obj.length && obj.length > 0) {return false;}
+                for (var prop in obj) { if (obj[prop]) {return false;} }
                 return true;
             },
             parseModel = function () {
                 scope.items.length = 0;
+                console.dir(originalScope);
+                console.dir(scope);
                 var model = parserResult.source(originalScope);
                 if (!angular.isDefined(model)) {return;}
                 var isArray = modelCtrl.$modelValue instanceof Array;
@@ -147,7 +138,7 @@
                     local[parserResult.itemName] = model[i];
                     var value = parserResult.modelMapper(local);
                     var isChecked = isArray ?
-                        ((typeof value !== 'undefined' && modelCtrl.$modelValue.indexOf(value.toString()) !==  -1) || (typeof value !== 'undefined' && modelCtrl.$modelValue.indexOf(value) !== -1)) :
+                        (modelCtrl.$modelValue.indexOf(value.toString()) !==  -1 || modelCtrl.$modelValue.indexOf(value) !== -1) :
                         (!isEmpty(modelCtrl.$modelValue) && modelCtrl.$modelValue === value);
                     var item = {
                         label: parserResult.viewMapper(local),
@@ -441,7 +432,7 @@
             require: ['^ngModel', '?^form'],
             templateUrl: 'template/multiselect/multiselectPopup.html',
             link: function (scope, element) {
-                var $dropdown = element.find('.dropdown-menu');
+                var $dropdown = element.find(".dropdown-menu");
                 $dropdown.attr("id", scope.popupId);
 
                 if (scope.appendToBody) {
@@ -580,7 +571,7 @@
                         "</li>" +
                         "<li ng-repeat=\"i in items | filter:searchText\">" +
                             "<a ng-click=\"select(i);\">" +
-                                "<i class=\"glyphicon\" ng-class=\"{'glyphicon-ok': i.checked, 'glyphicon-none': !i.checked}\"></i>" +
+                                "<i class=\"glyphicon\" ng-class=\"{'glyphicon-check': i.checked, 'glyphicon-unchecked': !i.checked}\"></i>" +
                                 "<span ng-bind=\"i.label\"></span>" +
                             "</a>" +
                         "</li>" +

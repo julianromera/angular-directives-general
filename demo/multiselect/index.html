@@ -1,27 +1,20 @@
 <html>
     <head>
-        <title>Multiselect Demo</title>
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
-
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
-        <!--<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-loader.min.js"></script>-->
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-sanitize.min.js"></script>
-        <!--<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-cookies.min.js"></script>-->
-        <!--<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-touch.min.js"></script>-->
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js"></script>
-
-        <!--<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>-->
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
-
-        <!--<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui-ieshiv.min.js"></script>-->
-        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
-
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css">
+        <title>Angular Multiselect Checkbox Dropdown</title>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-loader.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.clouadflare.com/ajax/libs/angular.js/1.5.0/angular-cookies.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-touch.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-resource.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+        <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-alpha0/angular-ui-router.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type='text/javascript' src="script.js"></script>
-        <script type='text/javascript' src="../../src/multiselect.js"></script>
+        <script type='text/javascript' src="https://cdn.rawgit.com/julianromera/angular-directives-general/05ce9a70/src/multiselect.js?v30"></script>
     </head>
 
     <body ng-app="myApp">
@@ -38,7 +31,14 @@
         </script>
         <script type="text/ng-template" id="state1.html">
         <div class="row">
-        <div class="col-lg-4">
+                    <div class="buttons col-lg-2">
+                    <div class="buttons">
+                        <button ng-click="vm.clear()">Clear Selections</button>
+                        <button ng-click="vm.randomSelect()">Randomly Select</button>
+                    </div>
+                    <br/>
+            </div>
+        <div class="col-lg-2">
             <form>
                 <div class="form-group">
                     <multiselect
@@ -126,12 +126,6 @@
                 </div>
             </form>
                         </div>
-            <div class="buttons col-lg-4">
-                    <div class="buttons">
-                        <button ng-click="vm.clear()">Clear Selections</button>
-                        <button ng-click="vm.randomSelect()">Randomly Select</button>
-                    </div>
-            </div>
             </div>
         </script>
     </body>

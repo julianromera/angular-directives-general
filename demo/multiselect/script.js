@@ -6,8 +6,8 @@
         'uix-multiselect',
         'ngSanitize',
         'ui.bootstrap',
-        'ui.router',
-        'ui']);
+        'ui.router'
+        ]);
 
     var state1Ctrl = function () {
         var vm = this,
